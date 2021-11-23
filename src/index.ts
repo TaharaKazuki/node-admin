@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
+import { routers } from './routes'
 
 const app = express()
 
@@ -10,9 +11,7 @@ app.use(
   })
 )
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello world')
-})
+routers(app)
 
 app.listen(8000, () => {
   console.info('port 8000')
